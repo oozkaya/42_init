@@ -1,1 +1,5 @@
-PING 42.fr (10.52.1.12): 56 data bytes
+163.172.250.12
+163.172.250.13
+163.172.250.11
+
+(avec la commande "dig +short 42.fr @resolver1.opendns.com" ou "nslookup 42.fr 8.8.8.8")
