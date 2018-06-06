@@ -1,0 +1,16 @@
+echo "BACKUP=/etc/crontab_md5_backup
+OLD_MD5=`cat /etc/crontab_md5_backup`
+MD5=`md5sum /etc/crontab | awk '{ print $1}'`
+
+if [! -f \$BACKUP]; then
+    echo \"No crontab md5 backup found.\"
+    echo \"\$MD5\" > /etc/crontab_md5_backup
+    exit 0
+fi
+
+if [ \"\$MD5\" != \"\$OLD_MD5\"]; then
+    echo \"\$MD5\" > /etc/crontab_md5_backup
+    mail -s \"/etc/crontab file have been modified.\" root@localhost
+fi" > script_04.sh
+
+(crontab -l; echo "0 0 * * * root sh script_04.sh") | crontab

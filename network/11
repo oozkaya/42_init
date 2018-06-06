@@ -1,0 +1,1 @@
+On remarque que c'est après l'appareil nat-1 (10.60.1.11) qu'on passe à une adresse réseau différente. On peut ensuite utiliser la commande "nslookup nat-1" pour avoir l'IP et le nom en détail : Name: nat-1.42.fr Address: 10.60.1.11
