@@ -12,5 +12,7 @@ if [ \"\$MD5\" != \"\$OLD_MD5\" ]; then
     echo \"\$MD5\" > /etc/crontab_md5_backup
     echo \"/etc/crontab file have been modified.\" | mail root@localhost
 fi" > script_04.sh
+chmod 755 script_04.sh
+mv script_04.sh /etc/cron.daily
 
 (crontab -l; echo "0 0 * * * root sh script_04.sh") | crontab
